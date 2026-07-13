@@ -92,6 +92,7 @@ button { color: inherit; }
 .article-tags--hero .article-tag { height: 27px; padding-inline: 11px; }
 .article-hero h1 { max-width: 800px; margin: 0; color: var(--ink); font-size: clamp(40px, 5.2vw, 56px); letter-spacing: -.05em; line-height: 1.17; }
 .article-hero-subtitle { max-width: 760px; margin: 17px 0 30px; color: #4e5968; font-size: clamp(18px, 2.2vw, 22px); font-weight: 600; letter-spacing: -.025em; line-height: 1.5; }
+.article-hero h1 + .article-byline { margin-top: 28px; }
 .article-byline { display: flex; align-items: center; gap: 12px; }
 .author-avatar { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--yellow); color: var(--ink); font-weight: 700; }
 .article-byline strong { color: var(--body); font-size: 14px; }
@@ -293,7 +294,7 @@ button { color: inherit; }
   .print-article-header > p:first-child { margin: 0 0 5mm; color: #666; font-size: 8pt; font-weight: 700; letter-spacing: .04em; }
   .print-article-header h1 { margin: 0; color: #111; font-size: 24pt; letter-spacing: -.04em; line-height: 1.25; }
   .print-article-subtitle { margin: 4mm 0 5mm; color: #333; font-size: 11pt; font-weight: 600; line-height: 1.6; }
-  .print-article-header div { color: #666; font-size: 8.5pt; }
+  .print-article-header div { margin-top: 5mm; color: #666; font-size: 8.5pt; }
   .print-article-body { padding-top: 10mm; }
   .print-article-body > h2 { margin: 12mm 0 4mm; font-size: 17pt; break-after: avoid; }
   .print-article-body > h2:first-child { margin-top: 0; }

@@ -26,7 +26,7 @@ const articles = [
   {
     slug: "music-tts-pronunciation-dictionary",
     tags: ["음성합성", "발음사전", "데이터 품질", "반복 검수"],
-    title: "약 3만 5천 개의 후보에서 TTS 발음사전 기준을 정리하다",
+    title: "멜론 DJ가 곡명을 정확히 발음하는 법: TTS 발음사전",
     subtitle: "영어와 숫자가 포함된 곡명·아티스트명 약 3만 5천 개를 발음사전 후보로 정리하고, 초기 약 10%를 수동 조사했습니다. 조사 기록에서 패턴을 찾고 처리 목표를 조정한 뒤, 주 단위 등록과 적용 확인까지 이어간 과정을 설명합니다.",
     excerpt: "영어와 숫자가 포함된 곡명·아티스트명 약 3만 5천 개를 발음사전 후보로 정리하고, 초기 약 10%를 수동 조사했습니다. 조사 기록에서 패턴을 찾고 처리 목표를 조정한 뒤, 주 단위 등록과 적용 확인까지 이어간 과정을 설명합니다.",
     date: "2026. 07. 12",
@@ -74,7 +74,7 @@ const articles = [
   {
     slug: "ai-academy-assistant-evaluation-design",
     tags: ["RAG", "AI 평가", "개인정보 보호", "출처 검증"],
-    title: "학원 상담 AI의 답변 범위와 안전 기준을 설계하다",
+    title: "\"방학특강 시간표 알려줘\" - 학원 상담용 AI 챗봇 개발기",
     subtitle: "부모님이 운영하는 수학학원의 반복 상담 문제를 바탕으로, 운영규정에 근거해 답하는 상담 AI MVP를 만들었습니다. 일반적인 성적 관리 질문까지 막은 과잉 거절을 수정하고, 유용한 답변과 개인정보 보호 사이의 경계를 재평가한 과정을 담았습니다.",
     excerpt: "부모님이 운영하는 수학학원의 반복 상담 문제를 바탕으로, 운영규정에 근거해 답하는 상담 AI MVP를 만들었습니다. 일반적인 성적 관리 질문까지 막은 과잉 거절을 수정하고, 유용한 답변과 개인정보 보호 사이의 경계를 재평가한 과정을 담았습니다.",
     date: "2026. 07. 12",
@@ -99,7 +99,7 @@ const articles = [
   {
     slug: "fan-communication-ai-prototype",
     tags: ["생성형 AI", "입력 정제", "AI 안전", "프로토타입"],
-    title: "팬 활동 데이터에서 대화에 필요한 정보만 남기는 법",
+    title: "팬 활동 데이터에서 소통에 필요한 정보만 남기는 법",
     subtitle: "사내 AI 해커톤에서 팬의 최근 활동을 요약해 아티스트의 답글 작성을 돕는 프로토타입을 팀으로 제작해 최종 3위·우수상을 받았습니다. 팬 활동 가운데 대화에 필요한 정보만 남기고 근거 없는 추론과 지킬 수 없는 답글 제안을 제한한 과정을 설명합니다.",
     excerpt: "사내 AI 해커톤에서 팬의 최근 활동을 요약해 아티스트의 답글 작성을 돕는 프로토타입을 팀으로 제작해 최종 3위·우수상을 받았습니다. 팬 활동 가운데 대화에 필요한 정보만 남기고 근거 없는 추론과 지킬 수 없는 답글 제안을 제한한 과정을 설명합니다.",
     date: "2026. 07. 12",
@@ -138,6 +138,7 @@ const printSelectionStatus = document.querySelector("#printSelectionStatus");
 const printView = document.querySelector("#printView");
 const markdownCache = new Map();
 let revealObserver;
+let revealFallbackTimer;
 let renderRequest = 0;
 
 function renderCards() {
@@ -173,7 +174,6 @@ async function renderArticle(article) {
         ${renderTags(article.tags, "article-tags--hero")}
       </div>
       <h1>${article.title}</h1>
-      <p class="article-hero-subtitle">${article.subtitle}</p>
       <div class="article-byline"><div class="author-avatar">S</div><div><strong>최수호</strong><p>${article.date} · ${article.readTime} 분량</p></div></div>
     </header>
     <div class="article-body markdown-body"><p class="article-loading">게시글을 불러오고 있습니다.</p></div>
@@ -350,7 +350,6 @@ function escapeHtml(value) {
 
 function decorateArticleContent(article) {
   const containers = [
-    articleView.querySelector(".article-hero-subtitle"),
     articleView.querySelector(".markdown-body"),
   ].filter(Boolean);
 
@@ -460,7 +459,6 @@ async function prepareAndPrintArticles() {
         <header class="print-article-header">
           <p>최수호 포트폴리오 블로그</p>
           <h1>${article.title}</h1>
-          <p class="print-article-subtitle">${article.subtitle}</p>
           <div>${article.publishedMonth} · ${article.characterCount}자 · ${article.readTime} 분량</div>
         </header>
         <div class="print-article-body markdown-body">${markdownToHtml(stripEditorNotes(markdownFiles[index]))}</div>
@@ -473,7 +471,7 @@ async function prepareAndPrintArticles() {
 
     selected.forEach((article) => {
       const root = printView.querySelector(`[data-print-slug="${article.slug}"]`);
-      decorateContainers([root.querySelector(".print-article-subtitle"), root.querySelector(".print-article-body")], article);
+      decorateContainers([root.querySelector(".print-article-body")].filter(Boolean), article);
     });
 
     const previousTitle = document.title;
@@ -532,6 +530,7 @@ function route() {
 
 function setupRevealMotion() {
   revealObserver?.disconnect();
+  window.clearTimeout(revealFallbackTimer);
 
   if (!articleView.hidden) {
     document.querySelectorAll(".reveal-item").forEach((target) => {
@@ -568,6 +567,10 @@ function setupRevealMotion() {
   }, { threshold: 0.08, rootMargin: "0px 0px -28px" });
 
   targets.forEach((target) => revealObserver.observe(target));
+  revealFallbackTimer = window.setTimeout(() => {
+    targets.forEach((target) => target.classList.add("is-visible"));
+    revealObserver?.disconnect();
+  }, 900);
 }
 
 function updateProgress() {
