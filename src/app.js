@@ -7,7 +7,7 @@ const articles = [
     excerpt: "자연어로 플레이리스트를 만드는 대화형 AI QA에서 서로 다른 생활 리듬과 서비스 이용 경험을 반영한 47개 페르소나를 구성했습니다. 사용자의 표현과 의도가 후속 대화, 추천 결과, TTS까지 유지되는지 검수한 과정을 담았습니다.",
     date: "2026. 07. 12",
     publishedMonth: "2026년 7월",
-    characterCount: "16,990",
+    characterCount: "17,195",
     readTime: "22분",
     highlights: [
       "여러 차례의 대화를 거쳐 완성되는 음악 목록",
@@ -31,7 +31,7 @@ const articles = [
     excerpt: "영어와 숫자가 포함된 곡명·아티스트명 약 3만 5천 개를 발음사전 후보로 정리하고, 초기 약 10% 분량의 단어들을 수동으로 조사했습니다. 조사 기록에서 패턴을 찾고 처리 목표를 조정한 뒤, 주 단위 등록과 적용 확인까지 이어간 과정을 설명합니다.",
     date: "2026. 07. 12",
     publishedMonth: "2026년 7월",
-    characterCount: "14,839",
+    characterCount: "14,823",
     readTime: "19분",
     highlights: [
       "실제 문장에 넣어 재생했을 때",
@@ -55,7 +55,7 @@ const articles = [
     excerpt: "사내 정보를 찾아주는 대화형 AI의 초기 QA에 참여해 직원 페르소나별 질문과 후속 대화를 테스트했습니다. 출처에 맞는 답변인지뿐 아니라, 실제로 실행할 수 없는 주문 같은 요청을 가능한 것처럼 안내하는 문제를 어떻게 구분했는지 정리했습니다.",
     date: "2026. 07. 12",
     publishedMonth: "2026년 7월",
-    characterCount: "10,327",
+    characterCount: "10,263",
     readTime: "13분",
     highlights: [
       "이전 대화의 조건이 유지되는지와 답변이 실제 사내 자료에 맞는지도 함께 확인",
@@ -64,7 +64,7 @@ const articles = [
     ],
     annotations: [
       ["야간 교통비", "야간 촬영이나 근무가 끝난 뒤의 귀가 비용 지원 여부를 묻는 사내 복지 사례로, 시간·장소 조건을 후속 대화에서 유지하는지 확인했습니다."],
-      ["사내 카페 주문", "정보 안내와 실제 업무 실행의 경계를 설명하기 위해 공개용으로 재구성한 사례입니다. 실제 주문·결제 연동이 없는 상태에서 처리를 약속하는 문제를 보여줍니다."],
+      ["사내 카페 주문", "정보 안내와 실제 업무 실행의 경계를 검수한 사례입니다. 보안상 세부 조건은 비식별화했으며, 주문·결제 연동이 없는 상태에서 처리를 약속하는 문제를 보여줍니다."],
       ["완료 오인", "시스템이 실제 업무를 처리하지 않았는데도 사용자가 주문·신청이 완료됐다고 믿게 되는 프로젝트 내 위험 유형입니다."],
     ],
     thumbnail: "assets/thumbnails/post-03-user.jpg",
@@ -79,8 +79,8 @@ const articles = [
     excerpt: "카카오뱅크 AI에서 영감을 받아, 부모님이 운영하는 수학학원의 반복 상담 문제를 해결할 AI 챗봇 MVP를 만들었습니다. 개발 과정에서 발생한 과잉 거절을 수정하고, 유용한 답변과 개인정보 보호 사이의 경계를 재평가한 과정을 담았습니다.",
     date: "2026. 07. 12",
     publishedMonth: "2026년 7월",
-    characterCount: "17,514",
-    readTime: "22분",
+    characterCount: "17,657",
+    readTime: "23분",
     highlights: [
       "유용한 답변과 개인정보 보호 사이의 경계",
       "출처가 있다는 사실만으로 답변이 규정에 충실하다고 볼 수는 없습니다",
@@ -104,7 +104,7 @@ const articles = [
     excerpt: "카카오엔터테인먼트 사내 AI 해커톤에서 팬의 최근 활동을 요약해 아티스트의 답글 작성을 돕는 프로토타입을 팀으로 제작해 최종 3위(우수상)을 받았습니다. 팬 활동 가운데 대화에 필요한 정보만 남기고 근거 없는 추론과 지킬 수 없는 답글 제안을 제한한 과정을 설명합니다.",
     date: "2026. 07. 12",
     publishedMonth: "2026년 7월",
-    characterCount: "9,844",
+    characterCount: "9,635",
     readTime: "13분",
     highlights: [
       "데이터의 양보다 이번 대화와의 관련성을 먼저",
@@ -188,7 +188,7 @@ async function renderArticle(article) {
     const markdown = await loadMarkdown(article.markdown);
     if (requestId !== renderRequest || location.hash !== `#article/${article.slug}`) return;
     const body = articleView.querySelector(".markdown-body");
-    body.innerHTML = markdownToHtml(stripEditorNotes(markdown));
+    body.innerHTML = markdownToHtml(prepareArticleMarkdown(markdown));
     decorateArticleContent(article);
     updateProgress();
     requestAnimationFrame(setupRevealMotion);
@@ -208,10 +208,8 @@ async function loadMarkdown(path) {
   return markdown;
 }
 
-function stripEditorNotes(markdown) {
+function prepareArticleMarkdown(markdown) {
   let content = markdown.replace(/\r/g, "");
-  const noteIndex = content.indexOf("\n## 최종 편집 자료");
-  if (noteIndex !== -1) content = content.slice(0, noteIndex);
   const firstRule = content.indexOf("\n---");
   if (firstRule !== -1 && firstRule < 250) content = content.slice(firstRule + 4);
   return content.trim();
@@ -461,7 +459,7 @@ async function prepareAndPrintArticles() {
           <h1>${article.title}</h1>
           <div>${article.publishedMonth} · ${article.characterCount}자 · ${article.readTime} 분량</div>
         </header>
-        <div class="print-article-body markdown-body">${markdownToHtml(stripEditorNotes(markdownFiles[index]))}</div>
+        <div class="print-article-body markdown-body">${markdownToHtml(prepareArticleMarkdown(markdownFiles[index]))}</div>
         <section class="print-glossary" aria-label="용어 설명">
           <h2>용어 설명</h2>
           <dl>${article.annotations.map(([term, explanation]) => `<div><dt>${term}</dt><dd>${explanation}</dd></div>`).join("")}</dl>
