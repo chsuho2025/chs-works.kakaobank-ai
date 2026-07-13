@@ -14,10 +14,12 @@ python3 -m http.server 4173
 
 - 게시글 원고: `content/posts/`의 글 1~5 Markdown 파일
 - 제목·태그·요약·썸네일: `src/app.js`의 `articles`
-- 이력서 임시 콘텐츠: `index.html`의 `resume-dialog`
+- 게시글 정보·강조·용어 설명: `src/app.js`의 `articles`
+- 게시글 PDF 선택 화면: `index.html`의 `print-dialog`
 - 스타일: `src/styles.css`
 
 게시글 원고의 `## 최종 편집 자료` 아래는 제작 메모로 간주해 웹 본문에서 자동으로 제외합니다.
+글자 수는 실제 표시되는 본문을 공백 포함 기준으로 계산하고, 읽기 분량은 분당 800자를 기준으로 올림 처리합니다.
 
 ## 배포 안정성
 
