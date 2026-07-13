@@ -96,7 +96,7 @@ const articles = [
       ]
     },
     characterCount: "17,195",
-    readTime: "22분",
+    readTime: "9분",
     highlights: [
       "여러 차례의 대화를 거쳐 완성되는 음악 목록",
       "이전 대화의 조건이 다음 응답과 최종 플레이리스트까지 유지되는지",
@@ -207,7 +207,7 @@ const articles = [
       ]
     },
     characterCount: "14,823",
-    readTime: "19분",
+    readTime: "8분",
     highlights: [
       "실제 문장에 넣어 재생했을 때",
       "명백한 오독으로 느낄 가능성이 큰 항목을 먼저 줄이는 방향",
@@ -307,7 +307,7 @@ const articles = [
       ]
     },
     characterCount: "10,263",
-    readTime: "13분",
+    readTime: "5분",
     highlights: [
       "이전 대화의 조건이 유지되는지와 답변이 실제 사내 자료에 맞는지도 함께 확인",
       "실제 시스템과 권한으로 완료할 수 있는지",
@@ -403,7 +403,7 @@ const articles = [
       ]
     },
     characterCount: "17,657",
-    readTime: "23분",
+    readTime: "9분",
     highlights: [
       "유용한 답변과 개인정보 보호 사이의 경계",
       "출처가 있다는 사실만으로 답변이 규정에 충실하다고 볼 수는 없습니다",
@@ -526,7 +526,7 @@ const articles = [
       ]
     },
     characterCount: "9,635",
-    readTime: "13분",
+    readTime: "5분",
     highlights: [
       "데이터의 양보다 이번 대화와의 관련성을 먼저",
       "최종 사용 여부를 AI가 결정해서는 안 된다고",
