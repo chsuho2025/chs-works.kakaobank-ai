@@ -6,7 +6,7 @@ const articles = [
     subtitle: "자연어로 플레이리스트를 만드는 대화형 AI QA에서 서로 다른 생활 리듬과 서비스 이용 경험을 반영한 47개 페르소나를 구성했습니다. 사용자의 표현과 의도가 후속 대화, 추천 결과, TTS까지 유지되는지 검수한 과정을 담았습니다.",
     excerpt: "자연어로 플레이리스트를 만드는 대화형 AI QA에서 서로 다른 생활 리듬과 서비스 이용 경험을 반영한 47개 페르소나를 구성했습니다. 사용자의 표현과 의도가 후속 대화, 추천 결과, TTS까지 유지되는지 검수한 과정을 담았습니다.",
     date: "2026. 07. 12",
-    publishedMonth: "2026년 7월",
+    period: "2026.03 ~ 2026.06",
     characterCount: "17,195",
     readTime: "22분",
     highlights: [
@@ -30,7 +30,7 @@ const articles = [
     subtitle: "영어와 숫자가 포함된 곡명·아티스트명 약 3만 5천 개를 발음사전 후보로 정리하고, 초기 약 10% 분량의 단어들을 수동으로 조사했습니다. 조사 기록에서 패턴을 찾고 처리 목표를 조정한 뒤, 주 단위 등록과 적용 확인까지 이어간 과정을 설명합니다.",
     excerpt: "영어와 숫자가 포함된 곡명·아티스트명 약 3만 5천 개를 발음사전 후보로 정리하고, 초기 약 10% 분량의 단어들을 수동으로 조사했습니다. 조사 기록에서 패턴을 찾고 처리 목표를 조정한 뒤, 주 단위 등록과 적용 확인까지 이어간 과정을 설명합니다.",
     date: "2026. 07. 12",
-    publishedMonth: "2026년 7월",
+    period: "2026.03 ~ 2026.06",
     characterCount: "14,823",
     readTime: "19분",
     highlights: [
@@ -54,7 +54,7 @@ const articles = [
     subtitle: "사내 정보를 찾아주는 대화형 AI의 초기 QA에 참여해 직원 페르소나별 질문과 후속 대화를 테스트했습니다. 출처에 맞는 답변인지뿐 아니라, 실제로 실행할 수 없는 주문 같은 요청을 가능한 것처럼 안내하는 문제를 어떻게 구분했는지 정리했습니다.",
     excerpt: "사내 정보를 찾아주는 대화형 AI의 초기 QA에 참여해 직원 페르소나별 질문과 후속 대화를 테스트했습니다. 출처에 맞는 답변인지뿐 아니라, 실제로 실행할 수 없는 주문 같은 요청을 가능한 것처럼 안내하는 문제를 어떻게 구분했는지 정리했습니다.",
     date: "2026. 07. 12",
-    publishedMonth: "2026년 7월",
+    period: "2025.09 ~ 2025.10",
     characterCount: "10,263",
     readTime: "13분",
     highlights: [
@@ -78,7 +78,7 @@ const articles = [
     subtitle: "카카오뱅크 AI에서 영감을 받아, 부모님이 운영하는 수학학원의 반복 상담 문제를 해결할 AI 챗봇 MVP를 만들었습니다. 개발 과정에서 발생한 과잉 거절을 수정하고, 유용한 답변과 개인정보 보호 사이의 경계를 재평가한 과정을 담았습니다.",
     excerpt: "카카오뱅크 AI에서 영감을 받아, 부모님이 운영하는 수학학원의 반복 상담 문제를 해결할 AI 챗봇 MVP를 만들었습니다. 개발 과정에서 발생한 과잉 거절을 수정하고, 유용한 답변과 개인정보 보호 사이의 경계를 재평가한 과정을 담았습니다.",
     date: "2026. 07. 12",
-    publishedMonth: "2026년 7월",
+    period: "2025.11 ~ 2025.12",
     characterCount: "17,657",
     readTime: "23분",
     highlights: [
@@ -103,7 +103,7 @@ const articles = [
     subtitle: "카카오엔터테인먼트 사내 AI 해커톤에서 팬의 최근 활동을 요약해 아티스트의 답글 작성을 돕는 프로토타입을 팀으로 제작해 최종 3위(우수상)을 받았습니다. 팬 활동 가운데 대화에 필요한 정보만 남기고 근거 없는 추론과 지킬 수 없는 답글 제안을 제한한 과정을 설명합니다.",
     excerpt: "카카오엔터테인먼트 사내 AI 해커톤에서 팬의 최근 활동을 요약해 아티스트의 답글 작성을 돕는 프로토타입을 팀으로 제작해 최종 3위(우수상)을 받았습니다. 팬 활동 가운데 대화에 필요한 정보만 남기고 근거 없는 추론과 지킬 수 없는 답글 제안을 제한한 과정을 설명합니다.",
     date: "2026. 07. 12",
-    publishedMonth: "2026년 7월",
+    period: "2026.06 ~ 진행 중",
     characterCount: "9,635",
     readTime: "13분",
     highlights: [
@@ -150,7 +150,7 @@ function renderCards() {
       <div class="article-card-content">
         <h3>${article.title}</h3>
         <p class="article-excerpt">${article.excerpt}</p>
-        <div class="article-meta article-meta--card"><span>${article.publishedMonth}</span><span>${article.characterCount}자</span><span>${article.readTime} 분량</span></div>
+        <div class="article-meta article-meta--card"><span>${article.period}</span><span>${article.characterCount}자</span><span>${article.readTime} 분량</span></div>
         <div class="article-card-footer">
           ${renderTags(article.tags)}
         </div>
@@ -174,7 +174,7 @@ async function renderArticle(article) {
         ${renderTags(article.tags, "article-tags--hero")}
       </div>
       <h1>${article.title}</h1>
-      <div class="article-byline"><div class="author-avatar">S</div><div><strong>최수호</strong><p>${article.date} · ${article.readTime} 분량</p></div></div>
+      <div class="article-byline"><div class="author-avatar">S</div><div><strong>최수호</strong><p>${article.period} · ${article.readTime} 분량</p></div></div>
     </header>
     <div class="article-body markdown-body"><p class="article-loading">게시글을 불러오고 있습니다.</p></div>
     <div class="article-end article-body">
@@ -413,7 +413,7 @@ function renderPrintOptions() {
       <span class="print-option-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8" /></svg></span>
       <span class="print-option-copy">
         <strong>${article.title}</strong>
-        <span>${article.publishedMonth} · ${article.characterCount}자 · ${article.readTime} 분량</span>
+        <span>${article.period} · ${article.characterCount}자 · ${article.readTime} 분량</span>
       </span>
     </label>
   `).join("");
@@ -457,7 +457,7 @@ async function prepareAndPrintArticles() {
         <header class="print-article-header">
           <p>최수호 포트폴리오 블로그</p>
           <h1>${article.title}</h1>
-          <div>${article.publishedMonth} · ${article.characterCount}자 · ${article.readTime} 분량</div>
+          <div>${article.period} · ${article.characterCount}자 · ${article.readTime} 분량</div>
         </header>
         <div class="print-article-body markdown-body">${markdownToHtml(prepareArticleMarkdown(markdownFiles[index]))}</div>
         <section class="print-glossary" aria-label="용어 설명">
@@ -497,7 +497,7 @@ function nextArticleLink(article) {
       <div class="article-card-content">
         <h3>${next.title}</h3>
         <p class="article-excerpt">${next.excerpt}</p>
-        <div class="article-meta article-meta--card"><span>${next.publishedMonth}</span><span>${next.characterCount}자</span><span>${next.readTime} 분량</span></div>
+        <div class="article-meta article-meta--card"><span>${next.period}</span><span>${next.characterCount}자</span><span>${next.readTime} 분량</span></div>
         <div class="article-card-footer">
           ${renderTags(next.tags)}
         </div>
