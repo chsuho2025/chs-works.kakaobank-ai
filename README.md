@@ -1,1 +1,30 @@
-# chs-works.kakaobank-ai
+# Suho AI Quality Portfolio Blog
+
+토스 테크의 읽기 경험을 참고해 만든 정적 포트폴리오 블로그 MVP입니다.
+
+## 로컬 실행
+
+```bash
+python3 -m http.server 4173
+```
+
+브라우저에서 `http://localhost:4173/`을 엽니다.
+
+## 콘텐츠 교체
+
+- 게시글 원고: `content/posts/`의 글 1~5 Markdown 파일
+- 제목·태그·요약·썸네일: `src/app.js`의 `articles`
+- 이력서 임시 콘텐츠: `index.html`의 `resume-dialog`
+- 스타일: `src/styles.css`
+
+게시글 원고의 `## 최종 편집 자료` 아래는 제작 메모로 간주해 웹 본문에서 자동으로 제외합니다.
+
+## 배포 안정성
+
+- 빌드 과정, 서버리스 함수, 외부 API가 없는 순수 정적 사이트입니다.
+- 글 상세는 hash route를 사용해 새로고침 시에도 404가 발생하지 않습니다.
+- 폰트를 프로젝트 내부에서 제공해 외부 폰트 서버 장애의 영향을 받지 않습니다.
+- `vercel.json`에 정적 자산 장기 캐시와 문서 재검증 정책을 분리했습니다.
+- `/health`로 정적 응답 상태를 확인할 수 있습니다.
+
+Vercel에서 별도 빌드 명령 없이 저장소 루트를 그대로 배포할 수 있습니다.
