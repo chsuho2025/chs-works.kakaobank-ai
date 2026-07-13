@@ -138,6 +138,7 @@ const printSelectionStatus = document.querySelector("#printSelectionStatus");
 const printView = document.querySelector("#printView");
 const markdownCache = new Map();
 let revealObserver;
+let revealFallbackTimer;
 let renderRequest = 0;
 
 function renderCards() {
@@ -532,6 +533,7 @@ function route() {
 
 function setupRevealMotion() {
   revealObserver?.disconnect();
+  window.clearTimeout(revealFallbackTimer);
 
   if (!articleView.hidden) {
     document.querySelectorAll(".reveal-item").forEach((target) => {
@@ -568,6 +570,10 @@ function setupRevealMotion() {
   }, { threshold: 0.08, rootMargin: "0px 0px -28px" });
 
   targets.forEach((target) => revealObserver.observe(target));
+  revealFallbackTimer = window.setTimeout(() => {
+    targets.forEach((target) => target.classList.add("is-visible"));
+    revealObserver?.disconnect();
+  }, 900);
 }
 
 function updateProgress() {
