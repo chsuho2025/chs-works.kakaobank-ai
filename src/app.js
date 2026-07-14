@@ -919,7 +919,7 @@ function prepareAndPrintArticles() {
 
   const originalLabel = printSelected.textContent;
   printSelected.disabled = true;
-  printSelected.textContent = "요약 PDF 준비 중…";
+  printSelected.textContent = "요약본 PDF 준비 중…";
 
   try {
     printView.innerHTML = selected.map((article) => `
