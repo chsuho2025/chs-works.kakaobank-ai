@@ -7,7 +7,7 @@ const projects = [
     title: "웹툰 IP를 움직이는 AI 숏애니 제작",
     shortTitle: "웹툰 AI 숏애니",
     summary:
-      "원작의 얼굴과 그림체를 지키면서 컷 선별부터 이미지·영상 생성, TTS·사운드, Premiere 편집과 최종 QC까지 연결한 제작 경험입니다.",
+      "웹툰 원작을 세로형 AI 숏애니로 제작한 프로젝트입니다. 컷 구성, 첫 프레임, 모션, TTS·사운드, 편집과 QC 과정을 정리했습니다.",
     tags: ["Gemini", "Kling AI", "ElevenLabs", "Premiere Pro"],
     facts: ["팀 프로젝트", "웹툰 IP 기반", "End-to-End 제작", "공개 범위 재구성"],
     video: "assets/videos/project-01.mp4",
@@ -21,7 +21,7 @@ const projects = [
     title: "Layer-in-Layer를 적용한 AI 드라마 장면",
     shortTitle: "AI 드라마 제작",
     summary:
-      "숏애니에서 정립한 보존·움직임·정리 기준을 배우의 연기와 장면 연속성으로 확장해 실제 드라마 장면에 적용하는 제작 실험입니다.",
+      "Layer-in-Layer를 AI 드라마 장면에 적용하는 프로젝트입니다. Scene Bible, Shot Design, 연기 지시와 Continuity QC 과정을 기록합니다.",
     tags: ["Scene Bible", "Shot Design", "Layer-in-Layer", "QC"],
     facts: ["개인 프로젝트", "AI 드라마", "제작 중", "기여도 100%"],
     video: "assets/videos/project-02.mp4",
@@ -187,7 +187,7 @@ async function renderArticle(project) {
   homeView.hidden = true;
   articleView.hidden = false;
   document.body.classList.add("is-article");
-  document.title = `${project.title} | 최수호 CJ AI 콘텐츠 포트폴리오`;
+  document.title = `${project.title} | AI 콘텐츠 포트폴리오`;
   articleView.innerHTML = `
     <header class="article-hero">
       <div class="article-hero-inner">
@@ -238,7 +238,7 @@ function showHome(anchor = "home") {
   articleView.innerHTML = "";
   homeView.hidden = false;
   document.body.classList.remove("is-article");
-  document.title = "최수호 | CJ AI 콘텐츠 포트폴리오";
+  document.title = "AI 콘텐츠 포트폴리오";
 
   requestAnimationFrame(() => {
     if (anchor === "home") {
@@ -260,7 +260,7 @@ function route() {
   }
 
   const anchor = location.hash.replace(/^#/, "") || "home";
-  showHome(["work", "workflow", "about"].includes(anchor) ? anchor : "home");
+  showHome(anchor === "work" ? "work" : "home");
 }
 
 function updateProgress() {

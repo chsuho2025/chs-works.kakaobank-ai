@@ -6,31 +6,31 @@
     <meta name="theme-color" content="#e4002b" />
     <meta
       name="description"
-      content="AI로 장면을 만들고 제작 흐름을 설계하는 최수호의 CJ AI 콘텐츠 포트폴리오 데모입니다."
+      content="AI 영상 결과물과 프로젝트별 제작 과정을 정리한 포트폴리오입니다."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="최수호 | CJ AI 콘텐츠 포트폴리오" />
+    <meta property="og:title" content="AI 콘텐츠 포트폴리오" />
     <meta
       property="og:description"
-      content="AI로 장면을 만들고 제작 흐름을 설계합니다."
+      content="AI 영상 결과물과 프로젝트별 제작 과정"
     />
     <meta property="og:url" content="https://chs-works-kakaobank-ai.vercel.app/cjdemo/" />
     <meta
       property="og:image"
-      content="https://chs-works-kakaobank-ai.vercel.app/cjdemo/assets/og-v2.png"
+      content="https://chs-works-kakaobank-ai.vercel.app/cjdemo/assets/og-v3.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="최수호 | CJ AI 콘텐츠 포트폴리오" />
+    <meta name="twitter:title" content="AI 콘텐츠 포트폴리오" />
     <meta
       name="twitter:description"
-      content="AI로 장면을 만들고 제작 흐름을 설계합니다."
+      content="AI 영상 결과물과 프로젝트별 제작 과정"
     />
     <meta
       name="twitter:image"
-      content="https://chs-works-kakaobank-ai.vercel.app/cjdemo/assets/og-v2.png"
+      content="https://chs-works-kakaobank-ai.vercel.app/cjdemo/assets/og-v3.png"
     />
     <base href="/cjdemo/" />
-    <title>최수호 | CJ AI 콘텐츠 포트폴리오</title>
+    <title>AI 콘텐츠 포트폴리오</title>
     <link rel="icon" type="image/png" href="../assets/favicon-ch.png" />
     <link
       rel="preload"
@@ -46,8 +46,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="src/styles.css?v=2" />
-    <script src="src/app.js?v=2" defer></script>
+    <link rel="stylesheet" href="src/styles.css?v=3" />
+    <script src="src/app.js?v=3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">본문으로 바로가기</a>
@@ -57,14 +57,12 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#home" aria-label="CJ AI 콘텐츠 포트폴리오 홈">
+        <a class="brand" href="#home" aria-label="AI 콘텐츠 포트폴리오 홈">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span>CJ AI CONTENT · SUHO</span>
+          <span>AI CONTENT PORTFOLIO</span>
         </a>
         <nav class="main-nav" aria-label="주요 메뉴">
-          <a href="#work">영상</a>
-          <a href="#workflow">워크플로우</a>
-          <a href="#about">역량</a>
+          <a href="#work">프로젝트</a>
         </nav>
       </div>
     </header>
@@ -72,82 +70,17 @@
     <main id="main-content" tabindex="-1">
       <div id="homeView">
         <section class="hero wrap" aria-labelledby="heroTitle">
-          <p class="eyebrow">AI CONTENT PLANNER &amp; CREATOR</p>
-          <h1 id="heroTitle">
-            AI로 장면을 만들고,<br />
-            <span>제작 흐름을 설계합니다.</span>
-          </h1>
+          <h1 id="heroTitle">AI 콘텐츠 포트폴리오</h1>
           <p class="hero-description">
-            웹툰 IP 기반 AI 숏애니 실무에서 출발해 이미지·영상·음성·편집을
-            하나의 제작 과정으로 연결했습니다. 지금은 그 워크플로우를
-            영화·드라마 장면 제작으로 확장하고 있습니다.
-          </p>
-          <p class="hero-meta">
-            카카오엔터 AI 콘텐츠 실무 <i>·</i> End-to-End 제작 <i>·</i> Layer-in-Layer
+            영상 결과물과 프로젝트별 제작 과정을 기록했습니다.
           </p>
         </section>
 
         <section class="showcase wrap" id="work" aria-labelledby="workTitle">
           <div class="section-heading">
-            <div>
-              <p class="section-kicker">SELECTED WORK</p>
-              <h2 id="workTitle">AI 영상 프로젝트</h2>
-            </div>
+            <h2 id="workTitle">프로젝트</h2>
           </div>
           <div class="project-grid" id="projectGrid"></div>
-        </section>
-
-        <section class="workflow-section" id="workflow" aria-labelledby="workflowTitle">
-          <div class="wrap">
-            <div class="section-heading">
-              <div>
-                <p class="section-kicker">PRODUCTION SYSTEM</p>
-                <h2 id="workflowTitle">반복 가능한 제작 워크플로우</h2>
-              </div>
-            </div>
-            <ol class="workflow-list">
-              <li><span>01</span><strong>대본 분석</strong><small>장면 목적·감정 비트</small></li>
-              <li><span>02</span><strong>장면 기준</strong><small>인물·공간·스타일</small></li>
-              <li><span>03</span><strong>숏 설계</strong><small>구도·시선·동선</small></li>
-              <li><span>04</span><strong>키프레임</strong><small>첫 프레임·연속성</small></li>
-              <li class="workflow-focus"><span>05</span><strong>Layer-in-Layer</strong><small>보존·움직임·정리</small></li>
-              <li><span>06</span><strong>생성·QC</strong><small>진단·수정·재생성</small></li>
-              <li><span>07</span><strong>사운드·편집</strong><small>최종 감상 경험</small></li>
-            </ol>
-            <p class="workflow-caption">
-              각 단계의 입력과 결과, 통과 기준을 정하고 실패 원인에 따라 필요한
-              단계로 돌아갑니다.
-            </p>
-          </div>
-        </section>
-
-        <section class="about-section wrap" id="about" aria-labelledby="aboutTitle">
-          <div class="about-intro">
-            <p class="section-kicker">WHAT I BRING</p>
-            <h2 id="aboutTitle">생성에서 멈추지 않고<br />사용 가능한 콘텐츠까지.</h2>
-          </div>
-          <div class="capability-grid">
-            <article>
-              <span>01</span>
-              <h3>콘텐츠 기획</h3>
-              <p>장르와 유통 목적을 먼저 정하고 장면 선택과 편집 리듬을 설계합니다.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>AI 연출</h3>
-              <p>감정을 시선·표정·호흡·동작의 순서로 바꿔 모델이 실행할 수 있게 합니다.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>품질 관리</h3>
-              <p>인물·스타일·연속성·오디오 싱크를 기준으로 통과와 재생성을 판단합니다.</p>
-            </article>
-            <article>
-              <span>04</span>
-              <h3>워크플로우</h3>
-              <p>도구와 산출물, 검수 지점, 실패 복구를 하나의 반복 가능한 흐름으로 정리합니다.</p>
-            </article>
-          </div>
         </section>
 
       </div>
@@ -159,9 +92,9 @@
       <div class="wrap footer-inner">
         <a class="brand brand--footer" href="#home">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span>CJ AI CONTENT · SUHO</span>
+          <span>AI CONTENT PORTFOLIO</span>
         </a>
-        <p>2026 · 포트폴리오 데모</p>
+        <p>2026</p>
       </div>
     </footer>
   </body>
